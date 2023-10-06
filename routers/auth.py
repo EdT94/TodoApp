@@ -95,7 +95,6 @@ async def get_current_user(request: Request):
         if token is None:
             return None
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        print(payload)
         username: str = payload.get("sub")
         user_id: int = payload.get("id")
         if username is None or user_id is None:
